@@ -1,6 +1,7 @@
 package controllers;
 
 import models.service.LoginService;
+import play.Logger;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.home;
@@ -15,13 +16,14 @@ public class HomeController extends Controller
 
 	public static Result goToHome()
 	{
+		Logger.info("Email : " + session().get("email"));
 		if(session().containsKey("email"))
 		{
 			mEmail = session().get("email");
 			mPassword = session().get("password");
 		}
 		else {
-			return unauthorized("Oops, you are not connected");
+			return unauthorized("Oops, you are not connected 1");
 		}
 		
 		boolean doesLoginExist = LoginService.doesLoginAlreadyExist(mEmail);
@@ -29,15 +31,17 @@ public class HomeController extends Controller
 			boolean isLoginSuccess = LoginService.verifyLogin(mEmail, mPassword);
 			if(isLoginSuccess) {
 				session("email", mEmail);
+				session("password", mPassword);
 				return ok(home.render(mEmail));			
 			}
 			else {
-				return unauthorized("Oops, you are not connected");
+				return unauthorized("Oops, you are not connected 2");
 			}			
 		}
 		else {
 			LoginService.createLogin(mEmail, mPassword);
 			session("email", mEmail);
+			session("password", mPassword);
 			return ok(home.render(mEmail));			
 		}
 	}

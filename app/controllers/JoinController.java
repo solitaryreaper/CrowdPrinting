@@ -18,11 +18,15 @@ public class JoinController extends Controller
 	}
 	
 	private static String mEmail = null;
+	private static String mPassword = null;
 	public static Result getPrinterInfo()
 	{
 		DynamicForm dynamicForm = form().bindFromRequest();
 		mEmail = dynamicForm.get("email");
+		mPassword = dynamicForm.get("password");
 		session("email", mEmail);
+		session("password", mPassword);
+		Logger.info(dynamicForm.get("email"));
 				
 		return ok(join_printerinfo_form.render());
 	}
