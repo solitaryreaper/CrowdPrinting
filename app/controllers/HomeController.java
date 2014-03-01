@@ -21,14 +21,23 @@ public class HomeController extends Controller
 		mUsername = dynamicForm.get("username");
 		mPassword = dynamicForm.get("password");
 		
-		boolean isLoginSuccess = LoginService.verifyLogin(mUsername, mPassword);
-		if(isLoginSuccess) {
+		boolean doesLoginExist = LoginService.doesLoginAlreadyExist(mUsername);
+		if(doesLoginExist) {
+			boolean isLoginSuccess = LoginService.verifyLogin(mUsername, mPassword);
+			if(isLoginSuccess) {
+				session("user", mUsername);
+				return ok(home.render(mUsername));			
+			}
+			else {
+				return unauthorized("Oops, you are not connected");
+			}			
+		}
+		else {
+			LoginService.createLogin(mUsername, mPassword);
 			session("user", mUsername);
 			return ok(home.render(mUsername));			
 		}
-		else {
-			return unauthorized("Oops, you are not connected");
-		}
+
 	}
 
 	public static Result goToPurchase()
