@@ -8,6 +8,13 @@
                 
     <!-- cdn hosted javascript files -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    
+    <style type="text/css">
+	    div#add_printer 
+	    {    /* this will hide div with class add_printer */
+	  		display:none;
+		}
+	</style>
 </head>
 <body>
     <header class="header">
@@ -29,40 +36,129 @@
                 <ul class="nav">
                      <li class="active"><a href="#"><b>Account Information</b></a></li>
                      <li><a href="/purchase"><b>Purchasing History</b></a></li>
-                     <li><a href="#"><b>Marketplace</b></a></li>
+                     <li><a href="/marketplace"><b>Marketplace</b></a></li>
                 </ul>
             </div>  
         </div>  
     </div>
     
     <div class="container">
-    <section><h2>Personal Information</h2></section>
-    <table class="table table-striped table-hover table-bordered">
-    <tbody>
-        <tr>
-            <td>User</td>
-            <td>@username</td>            
-        </tr>
-        <tr>
-            <td>City</td>
-            <td>Madison</td>            
-        </tr>
-        <tr>
-            <td>Zip Code</td>
-            <td>53726</td>            
-        </tr>
-    </tbody>
-    </table>
     
-    <section><h2>Payment Information</h2></section>
-    <table class="table table-striped table-hover table-bordered">
-    <tbody>
-        <tr>
-            <td>Credit Card</td>
-            <td>Ending with ***********0795</td>            
-        </tr>
-    </tbody>
-    </table>    
+	    <section><h2>Personal</h2></section>
+	    <table class="table table-striped table-hover table-bordered">
+	    <tbody>
+	        <tr>
+	            <td>User</td>
+	            <td>@username</td>            
+	        </tr>
+	        <tr>
+	            <td>City</td>
+	            <td>Madison</td>            
+	        </tr>
+	        <tr>
+	            <td>Zip Code</td>
+	            <td>53726</td>            
+	        </tr>
+	    </tbody>
+	    </table>
+    
+	    <section><h2>Bank Account</h2>
+		    <table class="table table-striped table-hover table-bordered">
+		    <tbody>
+		        <tr>
+		            <td>Credit Card</td>
+		            <td>Ending with ***********0795</td>            
+		        </tr>
+		    </tbody>
+		    </table>    
+	    </section>
+	    
+   	    <section><h2>Printers</h2>
+	   	    <p>No printers added yet.</p>
+	   	    <button id="add_printer_btn" type="submit" class="btn btn-primary" onclick="showAddPrinterForm()">Add a printer</button>
+	   	    	
+	   	    	<script language='javascript' type='text/javascript'>
+	   	    		function showAddPrinterForm()
+		   	    	{
+	       		 		document.getElementById('add_printer').style.display = 'block';
+	    			}
+	   	    		
+	   	    		function hideAddPrinterForm()
+		   	    	{
+	       		 		document.getElementById('add_printer').style.display = 'none';
+	    			}
+	   	    	</script>
+	   	    
+	   	    <div id="add_printer" >
+	   	        <!-- file upload form here -->
+			    <form method="post" class="form-horizontal container" action="/upload2" enctype="multipart/form-data">
+			    <fieldset>
+			        <legend>List your printer</legend>
+			        
+			          <div class="control-group">  
+			            <label class="control-label" for="printer_model_id"><b>Printer Model*</b></label>  
+			            <div class="controls">  
+			              <input type="text" class="input-xlarge" id="printer_model" name="printer_model" placeholder="e.g. MakerBot Replicator" required>  
+			            </div>  
+			          </div> 
+			
+			          <div class="control-group">  
+			            <label class="control-label" for="zip_id"><b>Maximum Build Platform*</b></label>  
+			            <div class="controls">  
+				    		<input class="input-small" type="text" id="username" name="username" placeholder="b (mm)" required>
+				    		x  
+				        	<input class="input-small" type="password" id="password" name="password" placeholder="w (mm)" required>
+				        	x
+				        	<input class="input-small" type="password" id="password" name="password" placeholder="h (mm)" required>
+				     	</div>
+			          </div>  
+			          
+			          <div class="control-group">  
+			            <label class="control-label" for="printer_resolution_id"><b>Printer Resolution*</b></label>  
+			            <div class="controls">  
+			              <input type="text" class="input-xlarge" id="printer_resolution" name="printer_resolution" placeholder="(in mm)" required>  
+			            </div>  
+			          </div> 
+			
+					<div class="control-group">  
+			            <label class="control-label" for="materials_id"><b>Materials*</b></label>  
+			            <div class="controls">  
+			                <select id="materials" name="materials">
+			                    <option selected>PLA Plastic</option> 
+			                    <option>Brass</option>                      
+			                    <option>Nylon</option>  
+			                    <option>Ceramic</option>
+			                    <option>Bronze</option>
+			                    <option>Stainless Steel</option>
+			                </select>   
+			            </div>  
+			         	 </div>  
+		                
+			         <div class="control-group">  
+			            <label class="control-label" for="colors_id"><b>Colors*</b></label>  
+			            <div class="controls">  
+			                    <select id="colors" name="colors">
+			                        <option selected>Orange</option> 
+			                        <option>Yellow</option>                      
+			                        <option>Green</option>  
+			                        <option>Blue</option>
+			                        <option>Purple</option>
+			                        <option>Violet</option>
+			                    </select>    
+			            </div>  
+			          </div>  
+			                    
+			          <div class="form-actions">  
+			            <button id="file_upload_btn" type="submit" class="btn btn-primary">Add</button>  
+			            <button id="file_upload_btn" type="submit" class="btn btn-primary" onclick="hideAddPrinterForm()">Cancel</button>
+			          </div>  
+			
+			        </fieldset>
+			        
+			    </form>   
+	   	    </div>
+   	   	</section>
+    
     </div>
     
     <form action="/logout" method="get"/>
