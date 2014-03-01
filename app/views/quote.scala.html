@@ -1,4 +1,4 @@
-@(jobId:Integer, user:String, material : String, color : String, quantity: Integer)
+@(jobId:Integer, user:String, material : String, color : String, quantity: Integer, quoteNum: Integer, amount:Integer, delivery:Integer)
 <html>
 <head>
 <title>CrowdPrinting</title>
@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td>Quote Number</td>
-            <td>5545948</td>
+            <td>@quoteNum</td>
         </tr>
         <tr>
             <td>Part Name/Number</td>
@@ -66,16 +66,16 @@
         </tr>    
         <tr>
             <td>Delivery</td>
-            <td>5 days</td>
+            <td>@delivery days</td>
         </tr>
         <tr>
-            <td colspan="2" class="pull-right">Total USD : <b>54.7$</b></td>
+            <td colspan="2" class="pull-right">Total USD : <b>@amount.00$</b></td>
         </tr>                              
     </tbody>
     </table>
     </div>
     
-    <form action="/checkout" method="post"/>
+    <form action="/checkout" method="get"/>
         <div align="center">
            <button class="btn btn-danger">Proceed to checkout</button>
         </div>

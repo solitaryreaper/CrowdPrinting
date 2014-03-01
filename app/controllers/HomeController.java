@@ -18,6 +18,7 @@ public class HomeController extends Controller
 		if(session().containsKey("email"))
 		{
 			mEmail = session().get("email");
+			mPassword = session().get("password");
 		}
 		else {
 			return unauthorized("Oops, you are not connected");
@@ -39,7 +40,6 @@ public class HomeController extends Controller
 			session("email", mEmail);
 			return ok(home.render(mEmail));			
 		}
-
 	}
 
 	public static Result goToPurchase()
