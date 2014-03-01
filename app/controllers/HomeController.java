@@ -1,6 +1,7 @@
 package controllers;
 
 import models.service.LoginService;
+import models.service.PrinterService;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.home;
@@ -23,6 +24,14 @@ public class HomeController extends Controller
 			return unauthorized("Oops, you are not connected");
 		}
 		
+		if(session().containsKey("password"))
+		{
+			mPassword = session().get("password");
+		}
+		else {
+			return unauthorized("Oops, you are not connected");
+		}
+		
 		boolean doesLoginExist = LoginService.doesLoginAlreadyExist(mEmail);
 		if(doesLoginExist) {
 			boolean isLoginSuccess = LoginService.verifyLogin(mEmail, mPassword);
@@ -37,6 +46,17 @@ public class HomeController extends Controller
 		else {
 			LoginService.createLogin(mEmail, mPassword);
 			session("email", mEmail);
+			
+//			String model = session().get("model");
+//			Double resolution = Double.parseDouble(session().get("resolution"));
+//			Double mbp_b = Double.parseDouble(session().get("mbp_b"));
+//			Double mbp_w = Double.parseDouble(session().get("mbp_w"));
+//			Double mbp_h = Double.parseDouble(session().get("mbp_h"));
+//			
+//			PrinterService.insertPrinter(mEmail, model, mbp_b, mbp_w, mbp_h, resolution);
+//			
+//			PrinterService.getPrinters(mEmail);
+			
 			return ok(home.render(mEmail));			
 		}
 

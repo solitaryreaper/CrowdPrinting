@@ -18,17 +18,41 @@ public class JoinController extends Controller
 	}
 	
 	private static String mEmail = null;
+	private static String mPassword = null;
+	
+//	private static String mbp_b_str = null;
+//	private static String mbp_w_str = null;
+//	private static String mbp_h_str = null;
+//	private static String model = null;
+//	private static String resolution = null;
+	
 	public static Result getPrinterInfo()
 	{
 		DynamicForm dynamicForm = form().bindFromRequest();
 		mEmail = dynamicForm.get("email");
+		mPassword = dynamicForm.get("password");
+		
 		session("email", mEmail);
+		session("password", mPassword);
 				
 		return ok(join_printerinfo_form.render());
 	}
 	
 	public static Result getPaymentInfo()
 	{
+//		DynamicForm dynamicForm = form().bindFromRequest();
+//		mbp_b_str = dynamicForm.get("mbp_b"); 
+//		mbp_w_str = dynamicForm.get("mbp_w"); 
+//		mbp_h_str = dynamicForm.get("mbp_h"); 
+//		model = dynamicForm.get("printer_model"); 
+//		resolution = dynamicForm.get("printer_resolution"); 
+//		
+//		session("mbp_b", mbp_b_str);
+//		session("mbp_w", mbp_w_str);
+//		session("mbp_h", mbp_h_str);
+//		session("model", model);
+//		session("resolution", resolution);
+		
 		Logger.info("GETPAYMENTINFO PRAKHAR");
 		
 		return ok(join_paymentinfo_form.render());
