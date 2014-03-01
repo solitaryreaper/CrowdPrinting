@@ -26,7 +26,7 @@ public class UploadController extends Controller{
 		session("quantity", dynamicForm.get("quantity"));
 		
 		Logger.info("Email : " + email);
-		session("user", email);
+		session("email", email);
 		
         return ok(upload_form_step2.render());
     }    
@@ -43,7 +43,7 @@ public class UploadController extends Controller{
 			quantity = Integer.parseInt(session().get("quantity"));
 		}
 		
-		String email = session().get("user");
+		String email = session().get("email");
 		int jobId = JobService.insertJob(email, material, color, "/tmp", quantity);
 		
 		Logger.info("Job Id : " + jobId);

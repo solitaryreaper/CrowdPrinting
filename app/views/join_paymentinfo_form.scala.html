@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Bank Account Information</title>
+    <!-- cdn hosted css -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+                
+    <!-- cdn hosted javascript files -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<header class="header well">
+       <h1 align="center">Join the 3D Printer Community</h1>
+    </header>
+    
+ <!-- navigation bar here with phases here -->
+    <div class="navbar container">  
+        <div class="navbar-inner">  
+            <div class="container">
+                <ul class="nav">
+                     <li><a href="#"><b> 1. Personal Info</b></a></li>
+                     <li><a href="#"><b> 2. Printer Info</b></a></li>
+                     <li class="active"><a href="#"><b> 3. Bank Account Info</b></a></li>
+                     <li><a href="#"><b> 4. Download Test File</b></a></li>
+                </ul>
+            </div>  
+        </div>  
+    </div>
+    
+	<section>
+	   	    
+	   	    <div id="add_printer" >
+	   	        <!-- file upload form here -->
+			    <form method="post" class="form-horizontal container" action="/join_downloadtestfile" enctype="multipart/form-data">
+			    <fieldset>
+			        <legend>Add Your Bank Account Information</legend>
+			        
+		        	 <div class="control-group">  
+			            <label class="control-label" for="name_on_card_id"><b>Name on Card*</b></label>  
+			            <div class="controls">  
+			              <input type="text" class="input-xlarge" id="name_on_card" name="name_on_card" placeholder="John Doe" required>  
+			            </div>  
+			          </div> 
+			          
+			          <div class="control-group">  
+			            <label class="control-label" for="card_number_id"><b>Card Number*</b></label>  
+			            <div class="controls">  
+			              <input type="text" class="input-xlarge" id="card_number" name="card_number" placeholder="xxxx-xxxx-xxxx-xxxx" required>  
+			            </div>  
+			          </div> 
+			          
+<!-- 			           <div class="control-group">   -->
+<!-- 			            <label class="control-label" for="card_cvc_id"><b>CVC*</b></label>   -->
+<!-- 			            <div class="controls">   -->
+<!-- 			              <input type="text" class="input-xlarge" id="card_cvc" name="card_cvc" placeholder="123" required>   -->
+<!-- 			            </div>   -->
+<!-- 			          </div>  -->
+			          
+			           <div class="control-group">  
+			            <label class="control-label" for="card_expiration_id"><b>Expiration*</b></label>  
+			            <div class="controls">  
+			              <input type="text" class="input-xlarge" id="card_expiration" name="card_expiration" placeholder="MM/YYYY" required>  
+			            </div>  
+			          </div> 
+			
+			          <div class="form-actions">  
+			            <button id="file_upload_btn" type="submit" class="btn btn-primary">Add Card</button>   
+			          </div>  
+			
+			        </fieldset>
+			        
+			    </form>   
+	   	    </div>
+   	   	</section>
+
+</body>
