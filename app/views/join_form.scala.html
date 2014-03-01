@@ -10,4 +10,70 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+ 	<!-- Create account form here -->
+    <form method="post" class="form-horizontal container" action="#" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Join the Community</legend>
+          
+          <div class="control-group">  
+            <label class="control-label" for="username_id"><b>Username*</b></label>  
+            <div class="controls">  
+              <input class="input-xlarge" type="text" id="name" name="name" placeholder="Username" required>  
+            </div>  
+          </div>  
+          
+          <div class="control-group">  
+            <label class="control-label" for="email_id"><b>Email address*</b></label>  
+            <div class="controls">  
+              <input type="text" class="input-xlarge" id="email" name="email" placeholder="Add your personal email address" required>  
+            </div>  
+          </div> 
+
+          <div class="control-group">  
+            <label class="control-label" for="password_id"><b>Password*</b></label>  
+            <div class="controls">  
+              <input class="input-xlarge" type="password" id="password" name="password" placeholder="At least 6 characters" required>  
+            </div>  
+          </div>  
+          
+          <div class="control-group">  
+            <label class="control-label" for="password_conf_id"><b>Confirm Password*</b></label>  
+            <div class="controls">  
+              <input class="input-xlarge" type="password" id="password_conf" name="password_conf" placeholder="Please re-enter password" oninput="check(this)" required>  
+            </div>  
+          </div>  
+                    
+          <div class="form-actions">  
+            <button id="file_upload_btn" type="submit" class="btn btn-primary">Create an Account</button>  
+          </div>  
+
+        </fieldset>
+        
+    </form>
+    
+	<script language='javascript' type='text/javascript'>
+	function check(input) {
+	    if (input.value != document.getElementById('password').value) {
+	        input.setCustomValidity('The two passwords must match.');
+	    } else {
+	        // input is valid -- reset the error message
+	        input.setCustomValidity('');
+	   }
+	}
+	</script>
+
+	<!-- Already have an account? -->
+    <div class="control-group">  
+     
+	     <form method="post" class="form-horizontal container" action="/home" enctype="multipart/form-data">
+	    	<div class="controls">  
+	    	<h5>Already have an account?</h5>
+	    		<input class="input-xlarge" type="text" id="username" name="username" placeholder="Username" required>  
+	        	<input class="input-xlarge" type="password" id="password" name="password" placeholder="Password" required>
+	        	<button id="file_upload_btn" type="submit" class="btn btn-primary">Login</button> 
+	     	</div>  
+	     </form>
+     </div>
+
 </body>
