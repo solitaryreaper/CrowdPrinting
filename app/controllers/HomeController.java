@@ -1,6 +1,7 @@
 package controllers;
 
 import static play.data.Form.form;
+import models.service.LoginService;
 import play.data.DynamicForm;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -20,9 +21,14 @@ public class HomeController extends Controller
 		mUsername = dynamicForm.get("username");
 		mPassword = dynamicForm.get("password");
 		
-		session("user", mUsername);
-
-		return ok(home.render(mUsername));//home.render());
+		boolean isLoginSuccess = LoginService.verifyLogin(mUsername, mPassword);
+		if(isLoginSuccess) {
+			session("user", mUsername);
+			return ok(home.render(mUsername));			
+		}
+		else {
+			return unauthorized("Oops, you are not connected");
+		}
 	}
 
 	public static Result goToPurchase()
