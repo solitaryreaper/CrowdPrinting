@@ -15,8 +15,10 @@ public class HomeController extends Controller
 		DynamicForm dynamicForm = form().bindFromRequest();
 		String username = dynamicForm.get("username");
 		String password = dynamicForm.get("password");
+		
+		session("user", username);
 
-		return ok(username + "");//home.render());
+		return ok(home.render());//home.render());
 	}
 
 }
