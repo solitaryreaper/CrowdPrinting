@@ -1,4 +1,4 @@
-@(material : String, color : String, resolution : String, comment:String)
+@(material : String, color : String, resolution : String, comment:String, jobId: Integer, quantity: Integer)
 
 <html>
 <head>
@@ -41,7 +41,7 @@
         <table class="table table-bordered table-striped">
             <tr>
                 <td>Reference ID</td>
-                <td>87657</td>                
+                <td>@jobId</td>                
             </tr>        
             <tr>
                 <td>Material</td>
@@ -57,7 +57,7 @@
             </tr>
             <tr>
                 <td>Quantity</td>
-                <td>20</td>                
+                <td>@quantity</td>                
             </tr>                                    
         </table>
 

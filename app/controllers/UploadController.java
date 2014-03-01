@@ -22,6 +22,8 @@ public class UploadController extends Controller{
 		int quantity = Integer.parseInt(dynamicForm.get("quantity"));
 		String filePath = dynamicForm.get("file_path");
 		
+		session("quantity", dynamicForm.get("quantity"));
+		
 		Logger.info("Email : " + email);
 		
         return ok(upload_form_step2.render());
@@ -34,8 +36,14 @@ public class UploadController extends Controller{
 		String resolution = dynamicForm.get("resolution");
 		String comment = dynamicForm.get("comments");
 		
+		int jobId = 1 + (int)(Math.random() * ((1000 - 1) + 1));
+		int quantity = 20;
+		if(session().containsKey("quantity")) {
+			quantity = Integer.parseInt(session().get("quantity"));
+		}
+		
 		Logger.info("Materials : " + material);
 		
-        return ok(upload_form_step3.render(material, color, resolution, comment));
+        return ok(upload_form_step3.render(material, color, resolution, comment, jobId, quantity));
     }       
 }

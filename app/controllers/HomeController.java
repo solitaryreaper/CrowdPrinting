@@ -4,6 +4,7 @@ import play.data.DynamicForm;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.home;
+import views.html.purchase;
 import static play.data.Form.form;
 
 
@@ -18,7 +19,11 @@ public class HomeController extends Controller
 		
 		session("user", username);
 
-		return ok(home.render());//home.render());
+		return ok(home.render(username));//home.render());
 	}
 
+	public static Result goToPurchase()
+	{
+		return ok(purchase.render());
+	}
 }

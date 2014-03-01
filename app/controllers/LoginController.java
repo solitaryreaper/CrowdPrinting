@@ -10,4 +10,12 @@ public class LoginController extends Controller
 	{
 		return ok(login_form.render());
 	}
+	
+	public static Result logout()
+	{
+		session().clear();
+
+		// Redirect the user to login page
+		return redirect("/");
+	}
 }
