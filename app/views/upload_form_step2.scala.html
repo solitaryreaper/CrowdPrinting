@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>3D Ordering - Select Materials</title>
+    <!-- cdn hosted css -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+                
+    <!-- cdn hosted javascript files -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="header well">
+       <h1 align="center">Ordering 3D Parts</h1>
+    </header>
+    
+    <!-- navigation bar here with phases here -->
+    <div class="navbar container">  
+        <div class="navbar-inner">  
+            <div class="container">
+                <ul class="nav">
+                     <li><a href="#"><b>1. Upload 3D files</b></a></li>
+                     <li class="active"><a href="#"><b>2. Specify your materials</b></a></li>
+                     <li><a href="#"><b>3. Get a quote</b></a></li>
+                </ul>
+            </div>  
+        </div>  
+    </div>
+    
+    <form id="materials_form" class="form-horizontal container" action="#">
+        
+	    <div class="control-group">
+               	    
+         <div class="control-group">  
+            <label class="control-label" for="pic_id"><b>Pic</b></label>  
+            <div class="controls">  
+                <img HEIGHT=50 WIDTH=50 src="http://www.babyhaven.com/media/catalog/category/baby-bath-toy-thumbnail.jpg"></img> 
+            </div>  
+          </div>  
+                     
+         <div class="control-group">  
+            <label class="control-label" for="materials_id"><b>Materials</b></label>  
+            <div class="controls">  
+                <select id="materials" name="materials">
+                    <option selected>PLA Plastic</option> 
+                    <option>Brass</option>                      
+                    <option>Nylon</option>  
+                    <option>Ceramic</option>
+                    <option>Bronze</option>
+                    <option>Stainless Steel</option>
+                </select>   
+            </div>  
+          </div>  
+                
+         <div class="control-group">  
+            <label class="control-label" for="colors_id"><b>Colors</b></label>  
+            <div class="controls">  
+                    <select id="colors" name="colors">
+                        <option selected>Orange</option> 
+                        <option>Yellow</option>                      
+                        <option>Green</option>  
+                        <option>Blue</option>
+                        <option>Purple</option>
+                        <option>Violet</option>
+                    </select>    
+            </div>  
+          </div>  
+          
+         <div class="control-group">  
+            <label class="control-label" for="resolution_id"><b>Resolution</b></label>  
+            <div class="controls">  
+                    <select id="resolution" name="resolution">
+                        <option selected>Low</option> 
+                        <option>Medium</option>                      
+                        <option>High</option>  
+                        <option>Ultra</option>
+                    </select>    
+            </div>  
+          </div>  
+          
+	        </div>
+	    </div>
+    
+        <div class="control-group">  
+          <label class="control-label" for="comments_id"><b>Comments</b></label>  
+          <div class="controls">  
+            <textarea class="input-xlarge" id="comments" name="comments" rows="3" placeholder="Add a short description of object here .." required></textarea>  
+          </div>  
+        </div>  
+                
+        <div class="form-actions">  
+          <button id="file_upload_btn" type="submit" class="btn btn-primary">Continue</button>  
+        </div>
+              
+    </form>
+</body>    

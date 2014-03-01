@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>3D Ordering - Upload File</title>
+    <!-- cdn hosted css -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+                
+    <!-- cdn hosted javascript files -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<header class="header well">
+	   <h1 align="center">Ordering 3D Parts</h1>
+	</header>
+	
+	<!-- navigation bar here with phases here -->
+    <div class="navbar container">  
+        <div class="navbar-inner">  
+            <div class="container">
+                <ul class="nav">
+                     <li class="active"><a href="#"><b>1. Upload 3D files</b></a></li>
+                     <li><a href="#"><b>2. Specify your materials</b></a></li>
+                     <li><a href="#"><b>3. Get a quote</b></a></li>
+                </ul>
+            </div>  
+        </div>  
+    </div>
+    
+    <!-- file upload form here -->
+    <form method="post" class="form-horizontal container" action="#" enctype="multipart/form-data">
+    <fieldset>
+        <legend>3D File Upload Form</legend>
+          <div class="control-group">  
+            <label class="control-label" for="email_id"><b>Email address</b></label>  
+            <div class="controls">  
+              <input type="text" class="input-xlarge" id="email" name="email" placeholder="Add your personal email address .." required>  
+            </div>  
+          </div> 
+
+          <div class="control-group">  
+            <label class="control-label" for="zip_id"><b>Zip Code</b></label>  
+            <div class="controls">  
+              <input class="input-xlarge" id="zip" name="zip" placeholder="Add zip code of your location .." required>  
+            </div>  
+          </div>  
+
+         <div class="control-group">  
+            <label class="control-label" for="file_id"><b>3D File</b></label>  
+            <div class="controls">  
+              <input class="input-file" id="file_path" name = "file_path" type="file" required>  
+            </div>  
+          </div>  
+          
+          <div class="control-group">  
+            <label class="control-label" for="quantity_id"><b>Quantity</b></label>  
+            <div class="controls">  
+              <input class="input-xlarge" id="quantity" name="quantity" placeholder="Add number of desired copies .." required>  
+            </div>  
+          </div>  
+                    
+          <div class="form-actions">  
+            <button id="file_upload_btn" type="submit" class="btn btn-primary">Continue</button>  
+          </div>  
+
+        </fieldset>
+        
+    </form>    
+</body>
