@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Login Form</title>
+
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/normalize.css")">
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/style.css")">
+	
+    <!-- cdn hosted css -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+                
+    <!-- cdn hosted javascript files -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<section class="loginform cf">
+		<form name="login" action="/home" method="post" accept-charset="utf-8">
+			<ul>
+				<li>
+<!-- 					<label for="usermail">Email</label> -->
+					<input type="text" id="username" name="username" placeholder="username" required>
+				</li>
+				<li>
+<!-- 					<label for="password">Password</label> -->
+					<input type="password" id="password" name="password" placeholder="password" required>
+				</li>
+				<li>
+					<input type="submit" value="Login">
+				</li>
+			</ul>
+		</form>
+	</section>
+</body>
+
+</html>
