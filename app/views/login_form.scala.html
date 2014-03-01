@@ -15,15 +15,15 @@
 </head>
 <body>
 	<section class="loginform cf">
-		<form name="login" action="index_submit" method="get" accept-charset="utf-8">
+		<form name="login" action="/home" method="post" accept-charset="utf-8">
 			<ul>
 				<li>
 <!-- 					<label for="usermail">Email</label> -->
-					<input type="text" name="usermail" placeholder="username" required>
+					<input type="text" id="username" name="username" placeholder="username" required>
 				</li>
 				<li>
 <!-- 					<label for="password">Password</label> -->
-					<input type="password" name="password" placeholder="password" required>
+					<input type="password" id="password" name="password" placeholder="password" required>
 				</li>
 				<li>
 					<input type="submit" value="Login">
