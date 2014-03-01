@@ -19,6 +19,10 @@ GET    /purchase                    controllers.HomeController.goToPurchase()
 GET    /marketplace                 controllers.HomeController.goToMarketPlace()
 GET		/accountinfo				controllers.HomeController.goToAccountInfo()
 
+
+GET     /checkout                   controllers.JobController.checkout()
+GET     /pay                        controllers.JobController.pay()
+
 GET     /job                       controllers.JobController.job(id:Integer)
 
 # Map static resources from the /public folder to the /assets URL path
