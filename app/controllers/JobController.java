@@ -15,7 +15,7 @@ public class JobController extends Controller {
 			return unauthorized("Oops, failed to find job id : " + id);
 		}
 		
-		String user = session().get("user");
+		String user = session().get("email");
 		return ok(quote.render(job.getId(), user, job.getMaterial(), job.getColor(), job.getQuantity()));
 	}
 }

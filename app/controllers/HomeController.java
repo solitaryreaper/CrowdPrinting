@@ -19,20 +19,27 @@ public class HomeController extends Controller
 		{
 			mEmail = session().get("email");
 		}
-		else
-		{
+		else {
 			return unauthorized("Oops, you are not connected");
 		}
 		
-		boolean isLoginSuccess = LoginService.verifyLogin(mEmail, mPassword);
-		if(isLoginSuccess) 
-		{
-			return ok(home.render(mEmail));
+		boolean doesLoginExist = LoginService.doesLoginAlreadyExist(mEmail);
+		if(doesLoginExist) {
+			boolean isLoginSuccess = LoginService.verifyLogin(mEmail, mPassword);
+			if(isLoginSuccess) {
+				session("email", mEmail);
+				return ok(home.render(mEmail));			
+			}
+			else {
+				return unauthorized("Oops, you are not connected");
+			}			
 		}
-		else 
-		{
-			return unauthorized("Oops, you are not connected");
+		else {
+			LoginService.createLogin(mEmail, mPassword);
+			session("email", mEmail);
+			return ok(home.render(mEmail));			
 		}
+
 	}
 
 	public static Result goToPurchase()
