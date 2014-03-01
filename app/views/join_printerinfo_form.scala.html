@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Printer Information</title>
+    <!-- cdn hosted css -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+                
+    <!-- cdn hosted javascript files -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<header class="header well">
+       <h1 align="center">Join the 3D Printer Community</h1>
+    </header>
+    
+ <!-- navigation bar here with phases here -->
+    <div class="navbar container">  
+        <div class="navbar-inner">  
+            <div class="container">
+                <ul class="nav">
+                     <li><a href="#"><b> 1. Personal Info</b></a></li>
+                     <li class="active"><a href="#"><b> 2. Printer Info</b></a></li>
+                     <li><a href="#"><b> 3. Bank Account Info</b></a></li>
+                     <li><a href="/"><b> 4. Download Test File</b></a></li>
+                </ul>
+            </div>  
+        </div>  
+    </div>
+    
+	<section>
+	   	    
+	   	    <div id="add_printer" >
+	   	        <!-- file upload form here -->
+			    <form method="post" class="form-horizontal container" action="/join_paymentinfo" enctype="multipart/form-data">
+			    <fieldset>
+			        <legend>Add your printer</legend>
+			        
+			          <div class="control-group">  
+			            <label class="control-label" for="printer_model_id"><b>Printer Model*</b></label>  
+			            <div class="controls">  
+			              <input type="text" class="input-xlarge" id="printer_model" name="printer_model" placeholder="e.g. MakerBot Replicator" required>  
+			            </div>  
+			          </div> 
+			
+			          <div class="control-group">  
+			            <label class="control-label" for="zip_id"><b>Maximum Build Platform*</b></label>  
+			            <div class="controls">  
+				    		<input class="input-small" type="text" id="mbp_b" name="mbp_b" placeholder="b (mm)" required>
+				    		x  
+				        	<input class="input-small" type="text" id="mbp_w" name="mbp_w" placeholder="w (mm)" required>
+				        	x
+				        	<input class="input-small" type="text" id="mbp_h" name="mbp_h" placeholder="h (mm)" required>
+				     	</div>
+			          </div>  
+			          
+			          <div class="control-group">  
+			            <label class="control-label" for="printer_resolution_id"><b>Printer Resolution*</b></label>  
+			            <div class="controls">  
+			              <input type="text" class="input-xlarge" id="printer_resolution" name="printer_resolution" placeholder="(in mm)" required>  
+			            </div>  
+			          </div> 
+			
+					<div class="control-group">  
+			            <label class="control-label" for="materials_id"><b>Materials*</b></label>  
+			            <div class="controls">  
+			                <select id="materials" name="materials">
+			                    <option selected>PLA Plastic</option> 
+			                    <option>Brass</option>                      
+			                    <option>Nylon</option>  
+			                    <option>Ceramic</option>
+			                    <option>Bronze</option>
+			                    <option>Stainless Steel</option>
+			                </select>   
+			            </div>  
+			         	 </div>  
+		                
+			         <div class="control-group">  
+			            <label class="control-label" for="colors_id"><b>Colors*</b></label>  
+			            <div class="controls">  
+			                    <select id="colors" name="colors">
+			                        <option selected>Orange</option> 
+			                        <option>Yellow</option>                      
+			                        <option>Green</option>  
+			                        <option>Blue</option>
+			                        <option>Purple</option>
+			                        <option>Violet</option>
+			                    </select>    
+			            </div>  
+			          </div>  
+			                    
+			          <div class="form-actions">  
+			            <button id="file_upload_btn" type="submit" class="btn btn-primary">Add Printer Info</button>   
+			          </div>  
+			
+			        </fieldset>
+			        
+			    </form>   
+	   	    </div>
+   	   	</section>
+
+</body>

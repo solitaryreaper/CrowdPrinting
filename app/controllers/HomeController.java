@@ -11,18 +11,28 @@ import views.html.purchase;
 
 public class HomeController extends Controller
 {
-	private static String mUsername = ""; 
-	private static String mPassword= "";
+//	private static String mUsername = ""; 
+	private static String mEmail = null;
+	private static String mPassword= null;
 	
 	public static Result goToHome()
 	{
-		DynamicForm dynamicForm = form().bindFromRequest();
-		mUsername = dynamicForm.get("username");
-		mPassword = dynamicForm.get("password");
+		if(session().containsKey("email")) {
+			mEmail = session().get("email");
+		}
 		
-		session("user", mUsername);
+//		if(mEmail == null)
+//		{
+//			DynamicForm dynamicForm = form().bindFromRequest();
+//	//		mUsername = dynamicForm.get("username");
+//			mEmail = dynamicForm.get("email");
+//			mPassword = dynamicForm.get("password");
+//			
+//	//		session("user", mUsername);
+//			session("email", mEmail);
+//		}
 
-		return ok(home.render(mUsername));//home.render());
+		return ok(home.render(mEmail));//home.render());
 	}
 
 	public static Result goToPurchase()
@@ -37,8 +47,11 @@ public class HomeController extends Controller
 	
 	public static Result goToAccountInfo()
 	{
-		session("user", mUsername);
+//		session("user", mUsername);
+		if(session().containsKey("email")) {
+			mEmail = session().get("email");
+		}
 
-		return ok(home.render(mUsername));//home.render());
+		return ok(home.render(mEmail));//home.render());
 	}
 }
