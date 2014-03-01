@@ -1,5 +1,6 @@
 package controllers;
 
+import models.service.JobService;
 import play.Logger;
 import play.data.DynamicForm;
 import play.mvc.Controller;
@@ -25,6 +26,7 @@ public class UploadController extends Controller{
 		session("quantity", dynamicForm.get("quantity"));
 		
 		Logger.info("Email : " + email);
+		session("user", email);
 		
         return ok(upload_form_step2.render());
     }    
@@ -36,13 +38,15 @@ public class UploadController extends Controller{
 		String resolution = dynamicForm.get("resolution");
 		String comment = dynamicForm.get("comments");
 		
-		int jobId = 1 + (int)(Math.random() * ((1000 - 1) + 1));
 		int quantity = 20;
 		if(session().containsKey("quantity")) {
 			quantity = Integer.parseInt(session().get("quantity"));
 		}
 		
-		Logger.info("Materials : " + material);
+		String email = session().get("user");
+		int jobId = JobService.insertJob(email, material, color, "/tmp", quantity);
+		
+		Logger.info("Job Id : " + jobId);
 		
         return ok(upload_form_step3.render(material, color, resolution, comment, jobId, quantity));
     }       

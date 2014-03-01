@@ -1,0 +1,88 @@
+@(jobId:Integer, user:String, material : String, color : String, quantity: Integer)
+<html>
+<head>
+<title>CrowdPrinting</title>
+    <!-- cdn hosted css -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+                
+    <!-- cdn hosted javascript files -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="navbar">  
+          <div class="navbar-inner row">
+            <div class="pull-left">
+                  <h1>&nbsp;&nbsp;<a href="/">CrowdPrinting.com</a></h1>
+                  <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Local Quality, Global Quantity ..</h4>            
+            </div>  
+          </div>  
+        </div> 
+    </header>
+    
+    <div class="container">
+        <section><h3>Summary</h3></section>
+    <table class="table">
+    <tbody>
+        <tr>
+            <td>Prepared For</td>
+            <td>@user</td>
+        </tr>
+        <tr>
+            <td>Quote Number</td>
+            <td>5545948</td>
+        </tr>
+        <tr>
+            <td>Part Name/Number</td>
+            <td>Wiggle Giggle</td>
+        </tr>
+        <tr>
+            <td>Extents</td>
+            <td>7.2cm * 7.3cm * 1.2cm</td>
+        </tr>    
+    </tbody>
+    </table>        
+    </div>
+    
+    <div class="container">
+    <section><h3>CloudMake Quote</h2></section>    
+    <table class="table table-bordered table-striped table-hover">
+    <tbody>
+        <tr>
+            <td>Material</td>
+            <td>@material</td>
+        </tr>
+        <tr>
+            <td>Color</td>
+            <td>@color</td>
+        </tr>
+        <tr>
+            <td>Quality</td>
+            <td>Medium</td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td>@quantity</td>
+        </tr>    
+        <tr>
+            <td>Delivery</td>
+            <td>5 days</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="pull-right">Total USD : <b>54.7$</b></td>
+        </tr>                              
+    </tbody>
+    </table>
+    </div>
+    
+    <form action="/checkout" method="post"/>
+        <div align="center">
+           <button class="btn btn-danger">Proceed to checkout</button>
+        </div>
+    </form>
+        
+    <div class="container">
+        <section><h4>Terms & Conditions</h4></section>
+    </div>
+</body>    
+    
